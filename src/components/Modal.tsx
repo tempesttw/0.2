@@ -41,7 +41,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
             className="grid h-8 w-8 place-items-center rounded-md text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-white"
             aria-label="Fechar"
           >
-            <X className="h-4.5 w-4.5" />
+            <X className="h-5 w-5" />
           </button>
         </div>
         <div className="max-h-[80vh] overflow-y-auto px-6 py-6">{children}</div>

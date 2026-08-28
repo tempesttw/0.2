@@ -21,6 +21,7 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -30,11 +31,23 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+
+  /* Scroll offset for fixed header when jumping to anchors */
+  html {
+    scroll-padding-top: 5rem;
   }
 
   ::selection {
     background-color: var(--accent);
     color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
@@ -56,17 +69,87 @@
     background-size: 3px 3px;
   }
 
+  /* --- Scroll reveal animations (driven by useReveal/IntersectionObserver) --- */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
     transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
 
+  .reveal[data-reveal="up"] {
+    transform: translateY(var(--reveal-distance, 28px));
+  }
+  .reveal[data-reveal="down"] {
+    transform: translateY(calc(var(--reveal-distance, 28px) * -1));
+  }
+  .reveal[data-reveal="left"] {
+    transform: translateX(calc(var(--reveal-distance, 28px) * -1));
+  }
+  .reveal[data-reveal="right"] {
+    transform: translateX(var(--reveal-distance, 28px));
+  }
+  .reveal[data-reveal="zoom"] {
+    transform: scale(0.92);
+  }
+  .reveal[data-reveal="none"] {
+    transform: none;
+  }
+
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+  }
+
+  /* --- Button / link microinteractions --- */
+  .btn-press {
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  .btn-press:active {
+    transform: scale(0.97);
+  }
+
+  .icon-move {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .icon-move {
+    transform: translateX(4px);
+  }
+
+  /* Shared card hover lift */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    will-change: transform;
+  }
+  @media (hover: hover) {
+    .card-hover:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Nav link underline microinteraction */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 2px;
+  }
+  @media (hover: hover) {
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+      transform: scaleX(1);
+    }
   }
 
   .marquee-track {
@@ -118,6 +201,13 @@
       transparent
     );
   }
+
+  .safe-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-pt {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -130,7 +220,8 @@
     scroll-behavior: auto !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal[data-reveal] {
     opacity: 1;
     transform: none;
   }

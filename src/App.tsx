@@ -3,11 +3,15 @@ import { AuthProvider } from '@/hooks/useAuth';
 import { SiteHeader } from '@/components/SiteHeader';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
+import { ModalidadesSection } from '@/components/ModalidadesSection';
 import { PlanosSection, type PlanKey } from '@/components/PlanosSection';
+import { DepoimentosSection } from '@/components/DepoimentosSection';
+import { FAQSection } from '@/components/FAQSection';
 import { SiteFooter } from '@/components/SiteFooter';
 import { MatriculaModal } from '@/components/MatriculaModal';
 import { LoginModal } from '@/components/LoginModal';
 import { AccountModal } from '@/components/AccountModal';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 type ModalType = 'login' | 'matricula' | 'account' | null;
 
@@ -28,9 +32,13 @@ function AppContent() {
       <main>
         <Hero onMatricula={() => openModal('matricula', 'mensal')} />
         <About />
+        <ModalidadesSection />
         <PlanosSection onMatricula={(plan) => openModal('matricula', plan)} />
+        <DepoimentosSection />
+        <FAQSection />
       </main>
       <SiteFooter />
+      <WhatsAppButton />
 
       <MatriculaModal
         open={modal === 'matricula'}

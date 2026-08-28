@@ -28,8 +28,8 @@ const FEATURES = [
 
 export function About() {
   return (
-    <section id="estrutura" className="relative bg-[var(--bg)] py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="estrutura" className="relative bg-[var(--bg)] py-20 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           <div>
             <Reveal>
@@ -38,23 +38,23 @@ export function About() {
               </span>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="mt-4 font-display text-4xl font-bold uppercase leading-tight text-white sm:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-bold uppercase leading-tight text-white sm:text-5xl">
                 Um campo de
                 <br />
                 <span className="text-[var(--accent)]">treino</span> de elite
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-[var(--muted)]">
+              <p className="mt-5 max-w-lg text-base leading-relaxed text-[var(--muted)] sm:mt-6 sm:text-lg">
                 800m² divididos em zonas especializadas para você treinar com
                 intensidade, segurança e variedade. Do iniciante ao atleta
                 competitivo, há um lugar para você aqui.
               </p>
             </Reveal>
 
-            <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+            <ul className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-2">
               {FEATURES.map((f, i) => (
-                <Reveal key={f.title} delay={300 + i * 100} as="li">
+                <Reveal key={f.title} delay={300 + i * 100} as="li" direction="left">
                   <div className="flex gap-3">
                     <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--accent)]/15 text-[var(--accent-soft)]">
                       <Check className="h-3.5 w-3.5" strokeWidth={3} />
@@ -74,21 +74,29 @@ export function About() {
           </div>
 
           <div className="relative">
-            <Reveal>
+            <Reveal direction="right">
               <div className="relative overflow-hidden rounded-2xl border border-[var(--border)]">
                 <img
                   src={STRUCTURE_IMG}
-                  alt="Interior da academia SPARTACUS com rack de halteres"
-                  className="h-[420px] w-full object-cover sm:h-[520px]"
+                  alt="Interior da academia SPARTACUS com fileira de halteres organizados"
+                  loading="lazy"
+                  decoding="async"
+                  width="640"
+                  height="480"
+                  className="h-[340px] w-full object-cover sm:h-[520px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent" />
               </div>
             </Reveal>
-            <Reveal delay={200}>
+            <Reveal delay={200} direction="up">
               <div className="absolute -bottom-8 -left-4 hidden w-64 overflow-hidden rounded-xl border border-[var(--border)] shadow-2xl sm:block">
                 <img
                   src={TRAINER_IMG}
-                  alt="Personal trainer acompanhando aluno"
+                  alt="Personal trainer da SPARTACUS orientando exercício de aluno"
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="160"
                   className="h-40 w-full object-cover"
                 />
                 <div className="bg-[var(--surface)] px-4 py-3">

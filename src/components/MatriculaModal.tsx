@@ -47,19 +47,38 @@ export function MatriculaModal({ open, onClose, onSwitchToLogin, plan }: Matricu
     }
 
     setLoading(true);
-    const { error: signUpError } = await signUp(form.email, form.password);
+    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+      email: form.email,
+      password: form.password,
+    });
     if (signUpError) {
-      setError(signUpError);
+      setError(signUpError.message);
       setLoading(false);
       return;
     }
 
-    const { data: userData } = await supabase.auth.signInWithPassword({
-      email: form.email,
-      password: form.password,
-    });
+    let userId = signUpData.user?.id;
 
-    const userId = userData.user?.id;
+    // Se signUp não retornou usuário, a confirmação de email pode estar desativada
+    // ou houve algum problema. Tenta fazer login.
+    if (!userId && signUpData.session?.user) {
+      userId = signUpData.session.user.id;
+    }
+
+    if (!userId) {
+      // Se ainda não tem userId, tenta login (caso email confirmation esteja desativada)
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+        email: form.email,
+        password: form.password,
+      });
+      if (signInError) {
+        setError(signInError.message);
+        setLoading(false);
+        return;
+      }
+      userId = signInData.user?.id;
+    }
+
     if (!userId) {
       setError('Não foi possível confirmar o cadastro. Tente fazer login.');
       setLoading(false);
@@ -72,6 +91,7 @@ export function MatriculaModal({ open, onClose, onSwitchToLogin, plan }: Matricu
       phone: form.phone,
       cpf: form.cpf,
       plan,
+      status: 'ativo',
     });
 
     if (memberError) {
