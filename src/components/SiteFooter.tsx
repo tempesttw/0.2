@@ -40,8 +40,8 @@ export function SiteFooter() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-[var(--muted)]">
-                Mais que treino, uma filosofia. Junte-se à legião que escolheu
-                a disciplina como caminho para a excelência.
+                Mais que treino, é filosofia de vida. Junte-se à legião que
+                escolheu disciplina no lugar de desculpa.
               </p>
             </Reveal>
             <Reveal delay={200}>
@@ -143,7 +143,7 @@ export function SiteFooter() {
                   value={contactForm.name}
                   onChange={update('name')}
                   placeholder="Seu nome"
-                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none"
+                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
                 />
                 <input
                   type="email"
@@ -151,14 +151,14 @@ export function SiteFooter() {
                   value={contactForm.email}
                   onChange={update('email')}
                   placeholder="Seu e-mail"
-                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none"
+                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
                 />
                 <input
                   type="tel"
                   value={contactForm.phone}
                   onChange={update('phone')}
                   placeholder="Telefone (opcional)"
-                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none"
+                  className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
                 />
                 <textarea
                   required
@@ -166,11 +166,11 @@ export function SiteFooter() {
                   value={contactForm.message}
                   onChange={update('message')}
                   placeholder="Sua mensagem..."
-                  className="w-full resize-none rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none"
+                  className="w-full resize-none rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-2.5 text-sm text-white placeholder:text-[var(--muted)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40"
                 />
                 <button
                   type="submit"
-                  className="btn-press flex w-full items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--accent-soft)]"
+                  className="btn-press flex w-full items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-all hover:-translate-y-0.5 hover:bg-[var(--accent-deep)] hover:shadow-[var(--accent)]/50"
                 >
                   <Send className="h-4 w-4" />
                   Enviar mensagem

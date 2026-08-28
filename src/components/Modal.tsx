@@ -38,7 +38,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="grid h-8 w-8 place-items-center rounded-md text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-white"
+            className="grid h-10 w-10 place-items-center rounded-md text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-white"
             aria-label="Fechar"
           >
             <X className="h-5 w-5" />

@@ -139,7 +139,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
             <button
               type="button"
               onClick={() => onOpenModal('matricula')}
-              className="hidden sm:inline-flex rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/25 transition-all hover:bg-[var(--accent-soft)] btn-press lg:inline-flex lg:px-5"
+              className="hidden rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-all hover:-translate-y-0.5 hover:bg-[var(--accent-deep)] hover:shadow-[var(--accent)]/50 sm:inline-flex lg:inline-flex lg:px-5 btn-press"
             >
               Matricule-se
             </button>
@@ -207,7 +207,7 @@ export function SiteHeader({ onOpenModal }: SiteHeaderProps) {
                       setMenuOpen(false);
                       onOpenModal('matricula');
                     }}
-                    className="btn-press mt-2 block w-full rounded-lg bg-[var(--accent)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[var(--accent-soft)]"
+                    className="btn-press mt-2 block w-full rounded-lg bg-[var(--accent)] px-4 py-3 text-center text-base font-semibold text-white hover:bg-[var(--accent-deep)]"
                   >
                     Matricule-se agora
                   </button>

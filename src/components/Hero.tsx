@@ -50,8 +50,8 @@ export function Hero({ onMatricula }: HeroProps) {
 
         <Reveal delay={240}>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:mt-6 sm:text-lg">
-            Mais que uma academia. A SPARTACUS é o campo de batalha onde
-            disciplina, força e superação se encontram — 24 horas por dia.
+            Aqui não é academia, é campo de batalha. Disciplina, força e
+            superação, 24 horas por dia.
           </p>
         </Reveal>
 
@@ -60,14 +60,14 @@ export function Hero({ onMatricula }: HeroProps) {
             <button
               type="button"
               onClick={onMatricula}
-              className="btn-press group inline-flex w-full items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-7 py-4 text-base font-semibold text-white shadow-xl shadow-[var(--accent)]/25 transition-colors hover:bg-[var(--accent-soft)] sm:w-auto"
+              className="btn-primary group w-full px-7 py-4 text-base sm:w-auto"
             >
               Começar agora
               <ArrowRight className="icon-move h-5 w-5" />
             </button>
             <a
               href="#estrutura"
-              className="btn-press group inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--border)] bg-white/5 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/30 hover:bg-white/10 sm:w-auto"
+              className="btn-ghost group w-full px-7 py-4 text-base sm:w-auto"
             >
               <Play className="h-4 w-4 fill-current" />
               Ver estrutura
@@ -91,12 +91,12 @@ export function Hero({ onMatricula }: HeroProps) {
         </Reveal>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-[var(--border)] bg-[var(--bg-soft)]/80 py-4 backdrop-blur">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-[var(--border)] bg-[var(--bg-soft)]/80 py-4 backdrop-blur" aria-hidden="true">
         <div className="mask-fade-x flex">
           <div className="marquee-track flex shrink-0 items-center gap-10 pr-10">
             {Array.from({ length: 2 }).flatMap((_, i) =>
               MARQUEE.map((w) => (
-                <span key={`${i}-${w}`} className="flex items-center gap-10">
+                <span key={`${i}-${w}`} className="flex items-center gap-10" aria-hidden="true">
                   <span className="font-display text-sm font-semibold uppercase tracking-[0.25em] text-[var(--muted)]">
                     {w}
                   </span>

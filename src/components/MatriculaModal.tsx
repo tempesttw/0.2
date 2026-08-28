@@ -18,7 +18,7 @@ const PLAN_LABELS: Record<string, string> = {
 };
 
 export function MatriculaModal({ open, onClose, onSwitchToLogin, plan }: MatriculaModalProps) {
-  const { signUp, refreshMember } = useAuth();
+  const { refreshMember } = useAuth();
   const [form, setForm] = useState({
     full_name: '',
     email: '',
@@ -106,7 +106,7 @@ export function MatriculaModal({ open, onClose, onSwitchToLogin, plan }: Matricu
   };
 
   const inputClass =
-    'w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-white placeholder:text-[var(--muted)] transition-colors focus:border-[var(--accent)] focus:outline-none';
+    'w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-white placeholder:text-[var(--muted)] transition-shadow focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/40';
 
   return (
     <Modal open={open} onClose={onClose} title="Matrícula">
@@ -173,7 +173,7 @@ export function MatriculaModal({ open, onClose, onSwitchToLogin, plan }: Matricu
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/20 transition-all hover:bg-[var(--accent-soft)] disabled:opacity-60"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[var(--accent)]/30 transition-all hover:-translate-y-0.5 hover:bg-[var(--accent-deep)] hover:shadow-[var(--accent)]/50 disabled:opacity-60 disabled:hover:translate-y-0"
         >
           {loading && <Loader2 className="h-4 w-4 animate-spin" />}
           {loading ? 'Processando...' : 'Confirmar matrícula'}

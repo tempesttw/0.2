@@ -46,9 +46,9 @@ export function About() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-5 max-w-lg text-base leading-relaxed text-[var(--muted)] sm:mt-6 sm:text-lg">
-                800m² divididos em zonas especializadas para você treinar com
-                intensidade, segurança e variedade. Do iniciante ao atleta
-                competitivo, há um lugar para você aqui.
+                800m² divididos em zonas especializadas: intensidade, segurança
+                e variedade num só lugar. Do iniciante ao atleta competitivo —
+                tem espaço pra você aqui.
               </p>
             </Reveal>
 

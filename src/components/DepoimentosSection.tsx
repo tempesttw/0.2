@@ -58,7 +58,7 @@ export function DepoimentosSection() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-4 text-base text-[var(--muted)] sm:text-lg">
-              Histórias reais de quem transformou a vida na Spartacus.
+              Histórias de quem já entrou no campo de batalha.
             </p>
           </Reveal>
         </div>
